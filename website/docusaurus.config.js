@@ -33,12 +33,12 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://localhost:3000/app',
+          href: 'https://master.d1k5pqsgfrsgrv.amplifyapp.com/profile/',
           label: 'Register',
           position: 'right',
         },
         {
-          href: 'https://localhost:3000/app',
+          href: 'https://master.d1k5pqsgfrsgrv.amplifyapp.com/profile/',
           label: 'Login',
           position: 'right',
         },
