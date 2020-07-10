@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"cihackathonreact8b28145a": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
