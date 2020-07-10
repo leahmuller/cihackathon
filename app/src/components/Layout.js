@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Helmet>
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
           href="https://bootswatch.com/4/cosmo/bootstrap.min.css"

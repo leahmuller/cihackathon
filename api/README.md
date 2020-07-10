@@ -1,0 +1,1 @@
+Serverless (Lambda) apis for website CRUD operations and a Python API for encoding entires into sound clips.

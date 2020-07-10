@@ -1,5 +1,5 @@
 {
-  "name": "react-app",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,7 +29,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "app"
   },
   "browserslist": {
     "production": [
