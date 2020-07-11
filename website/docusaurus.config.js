@@ -9,10 +9,9 @@ module.exports = {
   themeConfig: {
     disableDarkMode: true,
     // Google Analytics
-    //gtag: {
-    //  trackingID: "UA-164144906-4",
-    //  anonymizeIP: true,
-    //},
+    gtag: {
+      trackingID: "G-TBXF7PSF2Q",
+    },
     navbar: {
       title: 'Cochlear Implant Hackathon',
       logo: {
