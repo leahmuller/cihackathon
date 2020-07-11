@@ -6,9 +6,14 @@ import NavMenu from "./components/NavMenu";
 import Public from "./containers/Public";
 import Profile from "./containers/Profile";
 import Protected from "./containers/Protected";
+import Files from "./containers/Files";
+import { Logger } from "aws-amplify";
+
+const logger = new Logger('Router.js', 'DEBUG');
 
 const Router = () => {
   const [current, setCurrent] = useState("home");
+  logger.debug('current: ' + current);
 
   useEffect(() => {
     setRoute();
@@ -29,6 +34,7 @@ const Router = () => {
         <Switch>
           <Route exact path="/" component={Public} />
           <Route exact path="/protected" component={Protected} />
+          <Route exact path="/files" component={Files} />
           <Route exact path="/profile" component={Profile} />
           <Route component={Public} />
         </Switch>

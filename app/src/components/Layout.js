@@ -4,10 +4,10 @@ import Helmet from "react-helmet";
 import TagManager from 'react-gtm-module'
 
 const tagManagerArgs = {
-    gtmId: 'GTM-W4Q5DX8'
+    gtmId: 'GTM-W4Q5DX8',
 };
 
-TagManager.initialize(tagManagerArgs)
+TagManager.initialize(tagManagerArgs);
 
 export default function Layout({ children }) {
   return (

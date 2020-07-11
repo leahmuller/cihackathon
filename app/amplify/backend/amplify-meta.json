@@ -21,7 +21,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cihackathonreact-dev-142900-deployment/amplify-cfn-templates/auth/cihackathonreact8b28145a-cloudformation-template.yml",
 				"logicalId": "authcihackathonreact8b28145a"
 			},
-			"lastPushTimeStamp": "2020-07-05T21:34:00.471Z",
+			"lastPushTimeStamp": "2020-07-11T23:36:03.362Z",
 			"output": {
 				"AppClientSecret": "10bdf5uumug9firtehvfat70samgkha6fvm6qutg8s13kp6edp1",
 				"UserPoolId": "us-east-2_5gygMxgZk",
@@ -32,6 +32,22 @@
 				"UserPoolName": "cihackathonreact8b28145a_userpool_8b28145a"
 			},
 			"lastPushDirHash": "0u/GhEXuqjOMBtao129d08LyQSQ="
+		}
+	},
+	"storage": {
+		"s3cihackathon": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cihackathonreact-dev-142900-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storages3cihackathon"
+			},
+			"lastPushTimeStamp": "2020-07-11T23:36:03.367Z",
+			"output": {
+				"BucketName": "cihackathonreactb357af2f391243b986e65cebfd932a4142900-dev",
+				"Region": "us-east-2"
+			},
+			"lastPushDirHash": "QyFADPvpekGecA31B6Qsl75yexE="
 		}
 	}
 }
