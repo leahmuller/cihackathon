@@ -10,6 +10,10 @@
 		"s3cihackathon": {
 			"service": "S3",
 			"providerPlugin": "awscloudformation"
+		},
+		"dynamofba5af2d": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }

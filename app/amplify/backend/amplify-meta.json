@@ -21,7 +21,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cihackathonreact-dev-142900-deployment/amplify-cfn-templates/auth/cihackathonreact8b28145a-cloudformation-template.yml",
 				"logicalId": "authcihackathonreact8b28145a"
 			},
-			"lastPushTimeStamp": "2020-07-11T23:36:03.362Z",
+			"lastPushTimeStamp": "2020-07-12T00:36:59.526Z",
 			"output": {
 				"AppClientSecret": "10bdf5uumug9firtehvfat70samgkha6fvm6qutg8s13kp6edp1",
 				"UserPoolId": "us-east-2_5gygMxgZk",
@@ -42,12 +42,30 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cihackathonreact-dev-142900-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
 				"logicalId": "storages3cihackathon"
 			},
-			"lastPushTimeStamp": "2020-07-11T23:36:03.367Z",
+			"lastPushTimeStamp": "2020-07-12T00:36:59.528Z",
 			"output": {
 				"BucketName": "cihackathonreactb357af2f391243b986e65cebfd932a4142900-dev",
 				"Region": "us-east-2"
 			},
 			"lastPushDirHash": "QyFADPvpekGecA31B6Qsl75yexE="
+		},
+		"dynamofba5af2d": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cihackathonreact-dev-142900-deployment/amplify-cfn-templates/storage/dynamofba5af2d-cloudformation-template.json",
+				"logicalId": "storagedynamofba5af2d"
+			},
+			"lastPushTimeStamp": "2020-07-12T00:36:59.533Z",
+			"output": {
+				"PartitionKeyName": "fileId",
+				"Region": "us-east-2",
+				"Arn": "arn:aws:dynamodb:us-east-2:170914556599:table/userFiles-dev",
+				"StreamArn": "arn:aws:dynamodb:us-east-2:170914556599:table/userFiles-dev/stream/2020-07-12T00:36:05.611",
+				"PartitionKeyType": "N",
+				"Name": "userFiles-dev"
+			},
+			"lastPushDirHash": "DulVSGjd0ivSF/hzus5R1hP/wOo="
 		}
 	}
 }

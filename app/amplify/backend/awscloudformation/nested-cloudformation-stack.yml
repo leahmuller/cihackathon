@@ -156,6 +156,18 @@
 				}
 			}
 		},
+		"storagedynamofba5af2d": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplify-cihackathonreact-dev-142900-deployment/amplify-cfn-templates/storage/dynamofba5af2d-cloudformation-template.json",
+				"Parameters": {
+					"tableName": "userFiles",
+					"partitionKeyName": "fileId",
+					"partitionKeyType": "N",
+					"env": "dev"
+				}
+			}
+		},
 		"UpdateRolesWithIDPFunction": {
 			"DependsOn": [
 				"AuthRole",
