@@ -34,12 +34,40 @@ function Profile() {
   );
 }
 
+const signUpConfig = {
+  hideAllDefaults: true,
+  signUpFields: [
+    {
+      label: 'Name',
+      key: 'name',
+      required: true,
+      placeholder: 'Name',
+      type: 'name',
+      displayOrder: 1,
+    },
+    {
+      label: 'Email',
+      key: 'username',
+      required: true,
+      placeholder: 'Email',
+      type: 'email',
+      displayOrder: 2,
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      placeholder: 'Password',
+      type: 'password',
+      displayOrder: 3,
+    },
+  ],
+}
+
 export default withAuthenticator(Profile,
   {
     theme: AmplifyTheme,
     usernameAttributes: "email",
-    signUpConfig: {
-      hiddenDefaults: ["phone_number"],
-    },
+    signUpConfig: signUpConfig,
   }
 );

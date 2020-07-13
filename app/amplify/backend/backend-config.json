@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"cihackathon9efa86cb": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
