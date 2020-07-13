@@ -1,19 +1,19 @@
 {
-    "dev": {
+    "prod": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-cihackathonreact-dev-142900-authRole",
-            "UnauthRoleArn": "arn:aws:iam::170914556599:role/amplify-cihackathonreact-dev-142900-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::170914556599:role/amplify-cihackathonreact-dev-142900-authRole",
+            "AuthRoleName": "amplify-cihackathon-prod-102728-authRole",
+            "UnauthRoleArn": "arn:aws:iam::170914556599:role/amplify-cihackathon-prod-102728-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::170914556599:role/amplify-cihackathon-prod-102728-authRole",
             "Region": "us-east-2",
-            "DeploymentBucketName": "amplify-cihackathonreact-dev-142900-deployment",
-            "UnauthRoleName": "amplify-cihackathonreact-dev-142900-unauthRole",
-            "StackName": "amplify-cihackathonreact-dev-142900",
-            "StackId": "arn:aws:cloudformation:us-east-2:170914556599:stack/amplify-cihackathonreact-dev-142900/8c192ab0-bf06-11ea-b045-027927fac094",
-            "AmplifyAppId": "d7o0u1i9smk8n"
+            "DeploymentBucketName": "amplify-cihackathon-prod-102728-deployment",
+            "UnauthRoleName": "amplify-cihackathon-prod-102728-unauthRole",
+            "StackName": "amplify-cihackathon-prod-102728",
+            "StackId": "arn:aws:cloudformation:us-east-2:170914556599:stack/amplify-cihackathon-prod-102728/21533490-c52e-11ea-b907-06c94a3c6390",
+            "AmplifyAppId": "d30kosndh2yci"
         },
         "categories": {
             "auth": {
-                "cihackathonreact8b28145a": {}
+                "cihackathon9efa86cb": {}
             }
         }
     }

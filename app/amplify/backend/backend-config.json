@@ -1,15 +1,9 @@
 {
 	"auth": {
-		"cihackathonreact8b28145a": {
+		"cihackathon9efa86cb": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []
-		}
-	},
-	"storage": {
-		"s3cihackathon": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation"
 		}
 	}
 }
