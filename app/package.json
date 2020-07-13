@@ -22,6 +22,7 @@
     "antd": "^4.4.1",
     "aws-amplify": "^3.0.20",
     "aws-amplify-react": "^4.1.17",
+    "aws-sdk": "^2.713.0",
     "bootstrap": "^4.5.0",
     "dayjs": "^1.8.29",
     "jquery": "^3.5.1",

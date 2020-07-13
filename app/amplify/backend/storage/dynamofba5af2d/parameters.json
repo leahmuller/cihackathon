@@ -1,5 +1,0 @@
-{
-    "tableName": "userFiles",
-    "partitionKeyName": "fileId",
-    "partitionKeyType": "N"
-}
