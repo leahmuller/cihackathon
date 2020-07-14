@@ -367,7 +367,7 @@
         
         
         
-      "DeploymentAPIGWhelloworldAPIb070e91f": {
+      "DeploymentAPIGWhelloworldAPI8dedcc30": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
