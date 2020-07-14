@@ -41,6 +41,7 @@ export default function NewAlgorithm() {
       await createFile({ label, attachment });
       logger.debug("Success:" + label);
       //history.push("/");
+      setIsLoading(false);
     } catch (e) {
       logger.debug("Error in createFile:" + e);
       setIsLoading(false);
@@ -48,10 +49,11 @@ export default function NewAlgorithm() {
   }
 
   function createFile(item) {
-    return API.post("algorithmAPI", "/create", {
+    logger.debug(item);
+    var res = API.post("algorithmAPI", "/create", {
       body: item,
     });
-    logger.debug(item);
+    logger.debug(res);
   }
 
   return (

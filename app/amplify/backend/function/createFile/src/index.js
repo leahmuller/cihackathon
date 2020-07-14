@@ -61,14 +61,14 @@ exports.handler = function (event, context, callback) {
       const response = {
         statusCode: 500,
         headers: headers,
-        body: JSON.stringify({ status: false }),
+        body: JSON.stringify({ status: false, error: error }),
       };
       callback(null, response);
       return;
     }
 
     // Return status code 200 and the newly created item
-    console.log("Success", data);
+    console.log("Success", response);
     const response = {
       statusCode: 200,
       headers: headers,
