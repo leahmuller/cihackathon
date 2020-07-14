@@ -97,7 +97,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-cihackathon-prod-102728-deployment",
-					"S3Key": "amplify-builds/createFile-66687347627232756a37-build.zip"
+					"S3Key": "amplify-builds/createFile-3351614a6d676a6d4863-build.zip"
 				}
 			}
 		},
