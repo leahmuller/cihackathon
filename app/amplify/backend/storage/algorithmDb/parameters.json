@@ -1,0 +1,7 @@
+{
+    "tableName": "algorithmTable",
+    "partitionKeyName": "algorithmId",
+    "partitionKeyType": "S",
+    "sortKeyName": "userId",
+    "sortKeyType": "S"
+}

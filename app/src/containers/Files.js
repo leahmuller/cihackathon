@@ -9,35 +9,36 @@ function Files(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function onLoad() {
-      Auth.currentAuthenticatedUser().catch(() => {
-        props.history.push("/profile");
-      });
+    Auth.currentAuthenticatedUser().catch(() => {
+      props.history.push("/profile");
+    });
 
+    onLoad();
+
+    async function onLoad() {
       try {
-        const f = await loadFiles();
-        console.log(f);
-        setFiles(f);
+        var files = await loadFiles();
+        setFiles(files);
       } catch (e) {
         logger.debug(e);
       }
       setIsLoading(false);
     }
 
-    onLoad();
-  }, [props]);
+    logger.debug("files: " + files + " isLoading: " + isLoading);
+  }, [props, files, isLoading]); // react-hooks/exhaustive-deps
 
   function loadFiles() {
-    return API.get("cihackathonapi", "/algorithms");
+    return API.get("helloworldAPI", "/helloworld");
   }
 
-  function renderFilesList(files) {
-    return null;
-  }
+  //function renderFilesList(files) {
+  //  return null;
+  //}
 
-  function renderFiles() {
-    return <div className="files">{!isLoading && renderFilesList(files)}</div>;
-  }
+  //function renderFiles() {
+  //  return <div className="files">{!isLoading && renderFilesList(files)}</div>;
+  //}
 
   return (
     <Container>

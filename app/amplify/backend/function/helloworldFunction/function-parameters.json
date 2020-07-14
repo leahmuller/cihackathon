@@ -1,0 +1,21 @@
+{
+  "mutableParametersState": {
+    "permissions": {
+      "storage": {
+        "algorithmBucket": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "algorithmDb": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  },
+  "lambdaLayers": []
+}

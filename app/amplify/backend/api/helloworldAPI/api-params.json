@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/helloworld",
+            "lambdaFunction": "helloworldFunction",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "helloworldAPI",
+    "apiName": "helloworldAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "helloworldFunction"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-cihackathon-prod-102728-authRole",
+        "unAuthRoleName": "amplify-cihackathon-prod-102728-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "helloworldFunction",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "b070e91f"
+}

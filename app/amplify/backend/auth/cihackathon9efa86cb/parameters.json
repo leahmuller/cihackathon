@@ -1,6 +1,6 @@
 {
     "identityPoolName": "cihackathon9efa86cb_identitypool_9efa86cb",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "cihack9efa86cb",
     "userPoolName": "cihackathon9efa86cb_userpool_9efa86cb",
     "autoVerifiedAttributes": [
