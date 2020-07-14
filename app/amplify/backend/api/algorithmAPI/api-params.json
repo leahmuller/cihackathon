@@ -1,0 +1,41 @@
+{
+    "paths": [
+        {
+            "name": "/create",
+            "lambdaFunction": "createFile",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "algorithmAPI",
+    "apiName": "algorithmAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "createFile"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-cihackathon-prod-102728-authRole",
+        "unAuthRoleName": "amplify-cihackathon-prod-102728-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "createFile",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

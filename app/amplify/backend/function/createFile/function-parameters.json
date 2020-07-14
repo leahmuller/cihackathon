@@ -1,0 +1,29 @@
+{
+  "mutableParametersState": {
+    "permissions": {
+      "auth": {
+        "cihackathon9efa86cb": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      },
+      "storage": {
+        "algorithmBucket": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "algorithmDb": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  },
+  "lambdaLayers": []
+}

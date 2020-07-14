@@ -1,109 +1,152 @@
 {
-    "auth": {
-        "cihackathon9efa86cb": {
-            "service": "Cognito",
-            "providerPlugin": "awscloudformation",
-            "dependsOn": []
-        }
-    },
-    "storage": {
-        "algorithmBucket": {
-            "service": "S3",
-            "providerPlugin": "awscloudformation"
-        },
-        "algorithmDb": {
-            "service": "DynamoDB",
-            "providerPlugin": "awscloudformation"
-        }
-    },
-    "function": {
-        "cihackathonLambda": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda",
-            "dependsOn": [
-                {
-                    "category": "storage",
-                    "resourceName": "algorithmBucket",
-                    "attributes": [
-                        "BucketName"
-                    ]
-                },
-                {
-                    "category": "storage",
-                    "resourceName": "algorithmDb",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                }
-            ]
-        },
-        "helloworldFunction": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda",
-            "dependsOn": [
-                {
-                    "category": "storage",
-                    "resourceName": "algorithmBucket",
-                    "attributes": [
-                        "BucketName"
-                    ]
-                },
-                {
-                    "category": "storage",
-                    "resourceName": "algorithmDb",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                }
-            ]
-        },
-        "helloworld2Function": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda",
-            "dependsOn": []
-        }
-    },
-    "api": {
-        "cihackathonapi": {
-            "service": "API Gateway",
-            "providerPlugin": "awscloudformation",
-            "dependsOn": [
-                {
-                    "category": "function",
-                    "resourceName": "helloworld",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                },
-                {
-                    "category": "function",
-                    "resourceName": "helloworld2",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                }
-            ]
-        },
-        "helloworldAPI": {
-            "service": "API Gateway",
-            "providerPlugin": "awscloudformation",
-            "dependsOn": [
-                {
-                    "category": "function",
-                    "resourceName": "helloworldFunction",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                }
-            ]
-        }
-    }
+	"auth": {
+		"cihackathon9efa86cb": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"algorithmBucket": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		},
+		"algorithmDb": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"cihackathonLambda": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "algorithmBucket",
+					"attributes": [
+						"BucketName"
+					]
+				},
+				{
+					"category": "storage",
+					"resourceName": "algorithmDb",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"helloworldFunction": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "algorithmBucket",
+					"attributes": [
+						"BucketName"
+					]
+				},
+				{
+					"category": "storage",
+					"resourceName": "algorithmDb",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"helloworld2Function": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": []
+		},
+		"createFile": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "auth",
+					"resourceName": "cihackathon9efa86cb",
+					"attributes": [
+						"UserPoolId"
+					]
+				},
+				{
+					"category": "storage",
+					"resourceName": "algorithmBucket",
+					"attributes": [
+						"BucketName"
+					]
+				},
+				{
+					"category": "storage",
+					"resourceName": "algorithmDb",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"api": {
+		"cihackathonapi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "helloworld",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				},
+				{
+					"category": "function",
+					"resourceName": "helloworld2",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"helloworldAPI": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "helloworldFunction",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"algorithmAPI": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "createFile",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	}
 }

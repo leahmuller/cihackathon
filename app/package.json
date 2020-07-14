@@ -15,6 +15,7 @@
     "@aws-amplify/ui-react": "^0.2.9",
     "@aws-amplify/xr": "^2.1.19",
     "@react-native-community/netinfo": "^5.9.4",
+    "@strongdm/glyphicon": "^0.0.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
