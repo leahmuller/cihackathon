@@ -4,14 +4,7 @@
             "name": "/create",
             "lambdaFunction": "createFile",
             "privacy": {
-                "private": true,
-                "auth": [
-                    "/POST",
-                    "/GET",
-                    "/PUT",
-                    "/PATCH",
-                    "/DELETE"
-                ]
+                "open": true
             }
         }
     ],
@@ -23,7 +16,7 @@
         }
     ],
     "privacy": {
-        "auth": 1,
+        "auth": 0,
         "unauth": 0,
         "authRoleName": "amplify-cihackathon-prod-102728-authRole",
         "unAuthRoleName": "amplify-cihackathon-prod-102728-unauthRole"
@@ -37,5 +30,6 @@
                 "Arn"
             ]
         }
-    ]
+    ],
+    "uuid": "7552497d"
 }
