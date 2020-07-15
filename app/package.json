@@ -15,6 +15,7 @@
     "@aws-amplify/ui-react": "^0.2.9",
     "@aws-amplify/xr": "^2.1.19",
     "@react-native-community/netinfo": "^5.9.4",
+    "@strongdm/glyphicon": "^0.0.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -34,6 +35,7 @@
     "react-dom": "^16.13.1",
     "react-gtm-module": "^2.0.10",
     "react-helmet": "^6.1.0",
+    "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "uuid": "^8.2.0"

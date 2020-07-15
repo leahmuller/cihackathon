@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import Layout from "./components/Layout";
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
+import { AppContext } from "./libs/contextLib";
 import NavMenu from "./components/NavMenu";
+import Layout from "./components/Layout";
 import Public from "./containers/Public";
+import Logout from "./containers/Logout";
 import Profile from "./containers/Profile";
 import Protected from "./containers/Protected";
-import Files from "./containers/Files";
-import { Logger } from "aws-amplify";
+import Algorithms from "./containers/Algorithms";
+import AlgorithmList from "./containers/AlgorithmList";
+import NewAlgorithm from "./containers/NewAlgorithm";
+import { Auth, Logger } from "aws-amplify";
 
-const logger = new Logger('Router.js', 'DEBUG');
+const logger = new Logger("Router", "DEBUG");
 
 const Router = () => {
+  // eslint-disable-next-line
+  const history = useHistory();
+  const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
   const [current, setCurrent] = useState("home");
-  logger.debug('current: ' + current);
 
   useEffect(() => {
+    onLoad();
     setRoute();
     window.addEventListener("hashchange", setRoute);
     return () => window.removeEventListener("hashchange", setRoute);
-  }, []);
+  }, [isAuthenticating]);
 
   function setRoute() {
     const location = window.location.href.split("/");
@@ -27,19 +34,45 @@ const Router = () => {
     setCurrent(pathname ? pathname : "home");
   }
 
+  async function onLoad() {
+    try {
+      await Auth.currentSession();
+      userHasAuthenticated(true);
+    } catch (e) {
+      if (e !== "No current user") {
+        logger.debug(e);
+      }
+    }
+    setIsAuthenticating(false);
+  }
+
   return (
-    <BrowserRouter>
+    <>
       <Layout>
+        <AppContext.Provider 
+            value={{ 
+                isAuthenticated: isAuthenticated,
+                isAuthenticating: isAuthenticating,
+                setIsAuthenticating: setIsAuthenticating,
+                userHasAuthenticated: userHasAuthenticated
+            }}
+        >
         <NavMenu current={current} />
-        <Switch>
-          <Route exact path="/" component={Public} />
-          <Route exact path="/protected" component={Protected} />
-          <Route exact path="/files" component={Files} />
-          <Route exact path="/profile" component={Profile} />
-          <Route component={Public} />
-        </Switch>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Public} />
+              <Route exact path="/protected" component={Protected} />
+              <Route exact path="/algorithms" component={AlgorithmList} />
+              <Route exact path="/algorithms/:id" component={Algorithms} />
+              <Route exact path="/algorithms/new" component={NewAlgorithm} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/logout" component={Logout} />
+              <Route component={Public} />
+            </Switch>
+          </BrowserRouter>
+        </AppContext.Provider>
       </Layout>
-    </BrowserRouter>
+    </>
   );
 };
 

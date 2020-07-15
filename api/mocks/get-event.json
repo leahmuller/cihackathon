@@ -1,8 +1,6 @@
 {
-  "httpMethod": "GET",
-  "path": "/algorithms",
   "pathParameters": {
-    "id": "578eb840-f70f-11e6-9d1a-1359b3b22944"
+    "id": "3e2a75b0-c61e-11ea-a4d8-532aafe8fb9e"
   },
   "requestContext": {
     "identity": {

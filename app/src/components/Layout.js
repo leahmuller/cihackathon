@@ -1,13 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
 //import favicon from "favicon.ico";
-import TagManager from 'react-gtm-module'
-
-const tagManagerArgs = {
-    gtmId: 'GTM-W4Q5DX8',
-};
-
-TagManager.initialize(tagManagerArgs);
 
 export default function Layout({ children }) {
   return (

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppContext } from "../libs/contextLib";
+import { Logger } from "aws-amplify";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { ReactComponent as Logo } from "../assets/vectors/logo.svg";
 
-const NavMenu = (props) => {
+const logger = new Logger("NavMenu", "DEBUG");
+
+function NavMenu(props) {
+  const { isAuthenticated, isAuthenticating } = useAppContext();
+
+  useEffect(() => {
+    logger.debug("isAuthenticated:" + isAuthenticated + " isAuthenticating:" + isAuthenticating)
+  }, [isAuthenticating, isAuthenticated])
+
   return (
+    !isAuthenticating && (
     <>
       <Navbar>
         <Navbar.Brand href="#home">
@@ -12,12 +23,23 @@ const NavMenu = (props) => {
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/protected">Protected</Nav.Link>
-          <Nav.Link href="/files">Files</Nav.Link>
-          <Nav.Link href="/profile">Profile</Nav.Link>
+          {isAuthenticated ? (
+            <>
+              <Nav.Link href="/protected">Protected</Nav.Link>
+              <Nav.Link href="/algorithms">Algorithms</Nav.Link>
+              <Nav.Link href="/profile">Profile</Nav.Link>
+              <Nav.Link href="/logout">Logout</Nav.Link>
+            </>
+          ) : (
+            <>
+              <Nav.Link href="/protected">Protected</Nav.Link>
+              <Nav.Link href="/profile">Login</Nav.Link>
+            </>
+          )}
         </Nav>
       </Navbar>
     </>
+    )
   );
 };
 
