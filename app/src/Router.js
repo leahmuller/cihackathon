@@ -15,6 +15,7 @@ import { Auth, Logger } from "aws-amplify";
 const logger = new Logger("Router", "DEBUG");
 
 const Router = () => {
+  // eslint-disable-next-line
   const history = useHistory();
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);

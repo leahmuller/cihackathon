@@ -11,8 +11,6 @@ function Profile() {
 
   useEffect(() => {
     Hub.listen("auth", (data) => {
-      const { payload } = data;
-      //this.onAuthEvent(payload);
       logger.debug(
         "A new auth event has happened: ",
         data.payload.data.username + " has " + data.payload.event

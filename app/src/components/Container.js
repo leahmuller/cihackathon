@@ -1,21 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 
 const Container = (props) => {
-  const [current, setCurrent] = useState("home");
-
-  useEffect(() => {
-    setRoute();
-    window.addEventListener("hashchange", setRoute);
-    return () => window.removeEventListener("hashchange", setRoute);
-  }, []);
-
-  function setRoute() {
-    const location = window.location.href.split("/");
-    const pathname = location[location.length - 1];
-    setCurrent(pathname ? pathname : "home");
-  }
-
   return (
     <>
       <div style={styles.container}>{props.children}</div>
