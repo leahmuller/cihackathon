@@ -6,11 +6,11 @@ import { s3Upload } from "../libs/awsLib";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import Container from "../components/Container";
+import config from "../config";
 
 const logger = new Logger("NewAlgorithm", "DEBUG");
 
 export default function NewAlgorithm() {
-  const MAX_ATTACHMENT_SIZE = 5000000;
   const file = useRef(null);
   const history = useHistory();
   const [label, setLabel] = useState("");
@@ -27,9 +27,9 @@ export default function NewAlgorithm() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (file.current && file.current.size > MAX_ATTACHMENT_SIZE) {
+    if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
       alert(
-        `Please pick a file smaller than ${MAX_ATTACHMENT_SIZE / 1000000} MB.`
+        `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE / 1000000} MB.`
       );
       return;
     }
@@ -38,20 +38,20 @@ export default function NewAlgorithm() {
 
     try {
       const attachment = file.current ? await s3Upload(file.current) : null;
-      await createFile({ label, attachment });
+      await createAlgorithm({ label, attachment });
       logger.debug("Success:" + label);
-      //history.push("/");
+      history.push("/algorithms");
       setIsLoading(false);
     } catch (e) {
-      logger.debug("Error in createFile:" + e);
+      logger.debug("Error in createAlgorithm:" + e);
       setIsLoading(false);
     }
   }
 
-  function createFile(item) {
-    logger.debug(item);
-    var res = API.post("algorithmAPI", "/create", {
-      body: item,
+  function createAlgorithm(algorithm) {
+    logger.debug(algorithm);
+    var res = API.post("algorithms", "/algorithms", {
+      body: algorithm,
     });
     logger.debug(res);
   }
