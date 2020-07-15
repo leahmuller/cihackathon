@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Router from "./Router";
-import AppHistory from "./AppHistory";
 import Amplify from "aws-amplify";
 import config from './config';
 import "./index.css";
@@ -32,6 +31,5 @@ Amplify.configure({
 });
 
 ReactDOM.render(
-  //<Router />,
-  <AppHistory />,
+  <Router />,
 document.getElementById("root"));
