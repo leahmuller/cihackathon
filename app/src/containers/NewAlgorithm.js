@@ -40,8 +40,8 @@ export default function NewAlgorithm() {
       const attachment = file.current ? await s3Upload(file.current) : null;
       await createAlgorithm({ label, attachment });
       logger.debug("Success:" + label);
-      history.push("/algorithms");
       setIsLoading(false);
+      history.push("/algorithms");
     } catch (e) {
       logger.debug("Error in createAlgorithm:" + e);
       setIsLoading(false);

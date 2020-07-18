@@ -87,7 +87,7 @@ export default function Algorithms() {
         label,
         attachment: attachment || algorithm.attachment,
       });
-      history.push("/");
+      history.push("/algorithms");
     } catch (e) {
       logger.debug(e);
       setIsLoading(false);
@@ -113,7 +113,7 @@ export default function Algorithms() {
 
     try {
       await deleteAlgorithm();
-      history.push("/");
+      history.push("/algorithms");
     } catch (e) {
       logger.debug(e);
       setIsDeleting(false);

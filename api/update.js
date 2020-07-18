@@ -17,7 +17,7 @@ export const main = handler(async (event, context) => {
     UpdateExpression: "SET label = :label, attachment = :attachment",
     ExpressionAttributeValues: {
       ":attachment": data.attachment || null,
-      ":label": data.content || null,
+      ":label": data.label || null,
     },
     // 'ReturnValues' specifies if and how to return the item's attributes,
     // where ALL_NEW returns all attributes of the item after the update; you

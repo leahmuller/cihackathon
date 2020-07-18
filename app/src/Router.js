@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import { AppContext } from "./libs/contextLib";
 import NavMenu from "./components/NavMenu";
 import Layout from "./components/Layout";
+import Login from "./containers/Login";
 import Public from "./containers/Public";
 import Logout from "./containers/Logout";
 import Profile from "./containers/Profile";
@@ -19,6 +20,7 @@ const Router = () => {
   const history = useHistory();
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [user, setUser] = useState({});
   const [current, setCurrent] = useState("home");
 
   useEffect(() => {
@@ -38,6 +40,8 @@ const Router = () => {
     try {
       await Auth.currentSession();
       userHasAuthenticated(true);
+      const data = await Auth.currentUserPoolUser();
+      setUser({ username: data.username, ...data.attributes });
     } catch (e) {
       if (e !== "No current user") {
         logger.debug(e);
@@ -54,7 +58,9 @@ const Router = () => {
                 isAuthenticated: isAuthenticated,
                 isAuthenticating: isAuthenticating,
                 setIsAuthenticating: setIsAuthenticating,
-                userHasAuthenticated: userHasAuthenticated
+                userHasAuthenticated: userHasAuthenticated,
+                user: user,
+                setUser: setUser,
             }}
         >
         <NavMenu current={current} />
@@ -64,8 +70,9 @@ const Router = () => {
               <Route exact path="/protected" component={Protected} />
               <Route exact path="/algorithms" component={AlgorithmList} />
               <Route exact path="/algorithms/:id" component={Algorithms} />
-              <Route exact path="/algorithms/new" component={NewAlgorithm} />
+              <Route exact path="/create" component={NewAlgorithm} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/logout" component={Logout} />
               <Route component={Public} />
             </Switch>

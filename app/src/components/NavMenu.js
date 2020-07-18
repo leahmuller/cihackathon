@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+//import React from "react";
 import { useAppContext } from "../libs/contextLib";
 import { Logger } from "aws-amplify";
 import Nav from "react-bootstrap/Nav";
@@ -8,11 +9,12 @@ import { ReactComponent as Logo } from "../assets/vectors/logo.svg";
 const logger = new Logger("NavMenu", "DEBUG");
 
 function NavMenu(props) {
-  const { isAuthenticated, isAuthenticating } = useAppContext();
+  const { isAuthenticated, isAuthenticating, user } = useAppContext();
 
   useEffect(() => {
     logger.debug("isAuthenticated:" + isAuthenticated + " isAuthenticating:" + isAuthenticating)
-  }, [isAuthenticating, isAuthenticated])
+    logger.debug(user);
+  }, [isAuthenticating, isAuthenticated, user])
 
   return (
     !isAuthenticating && (
@@ -33,7 +35,7 @@ function NavMenu(props) {
           ) : (
             <>
               <Nav.Link href="/protected">Protected</Nav.Link>
-              <Nav.Link href="/profile">Login</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
             </>
           )}
         </Nav>

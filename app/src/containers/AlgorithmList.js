@@ -8,32 +8,30 @@ import "./AlgorithmList.css";
 
 const logger = new Logger("AlgorithmList", "DEBUG");
 
-export default function AlgorithmList() {
+export default function AlgorithmList(props) {
   const { isAuthenticated } = useAppContext();
   const [algorithms, setAlgorithms] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(
-    () => {
-      async function onLoad() {
-        if (!isAuthenticated) {
-          return;
-        }
-
-        try {
-          const algorithms = await loadAlgorithms();
-          setAlgorithms(algorithms);
-          logger.debug(algorithms);
-        } catch (e) {
-          logger.debug(e);
-        }
-
-        setIsLoading(false);
+  useEffect(() => {
+    async function onLoad() {
+      if (!isAuthenticated) {
+        return;
       }
 
-      onLoad();
-    }, [isAuthenticated]
-  );
+      try {
+        const algorithms = await loadAlgorithms();
+        setAlgorithms(algorithms);
+        //logger.debug(algorithms);
+      } catch (e) {
+        logger.debug(e);
+      }
+
+      setIsLoading(false);
+    }
+
+    onLoad();
+  }, [isAuthenticated, props]);
 
   function loadAlgorithms() {
     return API.get("algorithms", "/algorithms");
@@ -48,12 +46,14 @@ export default function AlgorithmList() {
         >
           <ListGroupItem>
             {algorithm.label.trim().split("\n")[0]}
-            <br/>
-            <small>{"Created: " + new Date(algorithm.createdAt).toLocaleString()}</small>
+            <br />
+            <small>
+              {"Created: " + new Date(algorithm.createdAt).toLocaleString()}
+            </small>
           </ListGroupItem>
         </LinkContainer>
       ) : (
-        <LinkContainer key="new" to="/algorithms/new">
+        <LinkContainer key="create" to="/create">
           <ListGroupItem>
             <h4>
               <b>{"\uFF0B"}</b> Create a new algorithm

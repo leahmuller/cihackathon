@@ -9,7 +9,7 @@ function Logout(props) {
   const { isAuthenticated, userHasAuthenticated } = useAppContext();
 
   useEffect(() => {
-    (isAuthenticated) && props.history.push('/profile')
+    (isAuthenticated) && props.history.push('/login')
     // Only logout authenticated users
     handleLogout();
     // eslint-disable-next-line
@@ -19,7 +19,7 @@ function Logout(props) {
     await Auth.signOut();
     userHasAuthenticated(false);
     logger.debug("User logged out");
-    props.history.push("/profile");
+    props.history.push("/login");
   }
 
   return (

@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
-import { Auth } from 'aws-amplify';
+import { useAppContext } from "../libs/contextLib";
 import Container from '../components/Container';
 
 function Protected(props) {
+  const { isAuthenticated } = useAppContext();
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser()
-      .catch(() => {
-        console.log(props.history);
-        props.history.push('/profile')
-      })
-  }, [props])
+    async function onLoad() {
+      if (!isAuthenticated) {
+        return;
+      }
+    }
+
+    onLoad();
+  }, [isAuthenticated, props]);
   
   return (
     <Container>
